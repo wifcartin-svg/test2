@@ -1,0 +1,5 @@
+# Deployment zip and backups
+*.zip
+*.responsive_backup
+rollback-source.html
+backup_images/

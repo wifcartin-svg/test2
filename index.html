@@ -1,0 +1,1593 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>deeniBox - Islamic Learning Products for Kids</title>
+    <link rel="icon" type="image/jpeg" href="deenibox-logo.jpeg">
+    <meta name="description" content="deeniBox offers interactive Islamic learning products for kids — tactile laptops, tablets, and prayer mats to make learning Duas, Quran, and Salah fun and engaging.">
+    <meta property="og:title" content="deeniBox - Islamic Learning Products for Kids">
+    <meta property="og:description" content="Al Muallim Laptop, Islamic Learning Tab, and Prayer Mat for kids.">
+    <meta property="og:image" content="https://deenibox.in/deenibox-logo.jpeg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS VARIABLES & RESET ===== */
+        :root {
+            --bg-main: #FAFAF8;
+            --surface: #FFFFFF;
+            --text-dark: #121826;
+            --text-muted: #64748B;
+            --brand-green: #00A843;
+            --brand-green-dark: #008A37;
+            --brand-green-light: #E6F7ED;
+            --accent-yellow: #FFC72C;
+            --dark-card-bg: #0F172A;
+            --dark-inner-bg: #1E293B;
+            --border-light: rgba(0, 0, 0, 0.08);
+            --radius-xl: 32px;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 20px 40px rgba(0, 168, 67, 0.12);
+            --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1520px;
+            margin: 0 auto;
+            padding: 0 clamp(14px, 2.5vw, 36px);
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: fixed;
+            top: clamp(10px, 1.8vw, 18px);
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(calc(100% - clamp(20px, 3.5vw, 48px)), 1520px);
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-light);
+            border-radius: 99px;
+            padding: clamp(8px, 1.2vw, 12px) clamp(16px, 2.5vw, 32px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            width: 100%;
+        }
+
+        .logo-img {
+            height: 36px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: clamp(16px, 2.2vw, 32px);
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            padding: 4px 0;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--brand-green);
+        }
+
+        .nav-links a:focus-visible {
+            outline: 2px solid var(--brand-green);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        .btn-nav {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--brand-green);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 99px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0, 168, 67, 0.25);
+            flex-shrink: 0;
+            min-height: 42px;
+            touch-action: manipulation;
+            cursor: pointer;
+        }
+
+        .btn-nav:hover {
+            background: var(--brand-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 168, 67, 0.35);
+        }
+
+        .btn-nav:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(0, 168, 67, 0.2);
+        }
+
+        .btn-nav:focus-visible {
+            outline: 2px solid var(--brand-green);
+            outline-offset: 3px;
+        }
+
+        /* ===== HAMBURGER & MOBILE NAV ===== */
+        .hamburger-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            min-height: 44px;
+            background: transparent;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1100;
+            transition: var(--transition);
+            touch-action: manipulation;
+        }
+
+        .hamburger-btn:hover {
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        .hamburger-btn:focus-visible {
+            outline: 2px solid var(--brand-green);
+            outline-offset: 2px;
+        }
+
+        .hamburger-btn span {
+            display: block;
+            width: 22px;
+            height: 2.5px;
+            background: var(--text-dark);
+            border-radius: 99px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-origin: center;
+        }
+
+        .hamburger-btn.open span:nth-child(1) {
+            transform: translateY(7.5px) rotate(45deg);
+        }
+
+        .hamburger-btn.open span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger-btn.open span:nth-child(3) {
+            transform: translateY(-7.5px) rotate(-45deg);
+        }
+
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1050;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            padding: 24px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .mobile-nav-overlay.open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .mobile-nav-overlay a.nav-link {
+            font-size: clamp(1.2rem, 4vw, 1.45rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: var(--transition);
+            padding: 6px 16px;
+            border-radius: 8px;
+        }
+
+        .mobile-nav-overlay a.nav-link:hover,
+        .mobile-nav-overlay a.nav-link:active {
+            color: var(--brand-green);
+            transform: scale(1.05);
+        }
+
+        .mobile-nav-overlay a.nav-link:focus-visible {
+            outline: 2px solid var(--brand-green);
+            outline-offset: 4px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding-top: clamp(100px, 14vw, 150px);
+            padding-bottom: clamp(24px, 3.5vw, 40px);
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 20px;
+            background: var(--brand-green-light);
+            color: var(--brand-green-dark);
+            font-size: clamp(0.82rem, 1.1vw, 0.9rem);
+            font-weight: 800;
+            border-radius: 99px;
+            margin-bottom: clamp(14px, 2vw, 22px);
+            letter-spacing: 0.02em;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 4.4vw, 3.8rem);
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            max-width: 900px;
+            margin: 0 auto clamp(14px, 2vw, 20px);
+        }
+
+        .hero-title .hero-brand {
+            display: block;
+            color: var(--brand-green);
+        }
+
+        .hero-desc {
+            font-size: clamp(0.98rem, 1.4vw, 1.12rem);
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto clamp(24px, 3.5vw, 36px);
+            font-weight: 500;
+            line-height: 1.65;
+            padding: 0 12px;
+        }
+
+        /* ===== MAIN PRODUCT SHOWCASE & CARDS ===== */
+        .product-showcase {
+            padding: 10px 0 clamp(40px, 6vw, 70px);
+        }
+
+        .product-card {
+            background: var(--surface);
+            border-radius: 28px;
+            border: 1px solid var(--border-light);
+            padding: clamp(24px, 3.5vw, 52px);
+            box-shadow: var(--shadow-soft);
+            display: grid;
+            grid-template-columns: 1.18fr 1fr;
+            gap: clamp(28px, 4vw, 60px);
+            align-items: center;
+            margin-bottom: clamp(36px, 5vw, 64px);
+            position: relative;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .product-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.06);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: clamp(12px, 2vw, 18px);
+            left: clamp(12px, 2vw, 18px);
+            background: var(--brand-green);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 5px 14px;
+            border-radius: 99px;
+            z-index: 2;
+            letter-spacing: 0.02em;
+            box-shadow: 0 2px 8px rgba(0, 168, 67, 0.25);
+        }
+
+        /* Left Column: Gallery Slider */
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(12px, 2vw, 18px);
+            width: 100%;
+        }
+
+        .main-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: clamp(280px, 33vw, 480px);
+            background: #F8FAF9;
+            border-radius: 20px;
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .main-image-wrapper img {
+            max-width: 90%;
+            max-height: 90%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            min-height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: var(--text-dark);
+            transition: var(--transition);
+            user-select: none;
+            z-index: 5;
+            touch-action: manipulation;
+        }
+
+        .nav-arrow:hover {
+            background: var(--surface);
+            color: var(--brand-green);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+            transform: translateY(-50%) scale(1.08);
+        }
+
+        .nav-arrow:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .nav-arrow:focus-visible {
+            outline: 2px solid var(--brand-green);
+            outline-offset: 2px;
+        }
+
+        .nav-arrow.prev { left: clamp(8px, 1.5vw, 14px); }
+        .nav-arrow.next { right: clamp(8px, 1.5vw, 14px); }
+
+        .thumbnail-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: clamp(6px, 1.2vw, 12px);
+            width: 100%;
+        }
+
+        .thumb-box {
+            height: clamp(54px, 7vw, 85px);
+            border-radius: var(--radius-md);
+            border: 2px solid transparent;
+            background: #F8FAF9;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            touch-action: manipulation;
+        }
+
+        .thumb-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .thumb-box:hover {
+            border-color: rgba(0, 168, 67, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .thumb-box.active {
+            border-color: var(--brand-green);
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 168, 67, 0.15);
+        }
+
+        /* Right Column: Product Details & Pricing */
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .product-title {
+            font-size: clamp(1.65rem, 2.4vw, 2.35rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.22;
+            margin-bottom: clamp(10px, 1.4vw, 14px);
+        }
+
+        .product-description {
+            color: var(--text-muted);
+            font-size: clamp(0.94rem, 1.15vw, 1.04rem);
+            line-height: 1.65;
+            margin-bottom: clamp(18px, 2vw, 26px);
+            font-weight: 500;
+        }
+
+        .feature-checklist {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(8px, 1vw, 12px);
+            margin-bottom: clamp(18px, 2.5vw, 28px);
+        }
+
+        .feature-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: clamp(0.9rem, 1.05vw, 0.98rem);
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .feature-checklist li .check-icon {
+            color: var(--brand-green);
+            font-weight: 900;
+            font-size: 1.1rem;
+            line-height: 1.2;
+            flex-shrink: 0;
+        }
+
+        .price-box {
+            background: #F8FAF9;
+            border-radius: var(--radius-md);
+            padding: clamp(14px, 2vw, 18px) clamp(16px, 2.5vw, 24px);
+            margin-bottom: clamp(16px, 2vw, 24px);
+        }
+
+        .price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 4px;
+        }
+
+        .price-current {
+            font-size: clamp(1.6rem, 3vw, 2.1rem);
+            font-weight: 900;
+            color: var(--brand-green);
+        }
+
+        .price-original {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            color: #94A3B8;
+            text-decoration: line-through;
+            font-weight: 600;
+        }
+
+        .price-savings {
+            color: var(--brand-green-dark);
+            font-weight: 700;
+            font-size: clamp(0.85rem, 1.1vw, 0.92rem);
+        }
+
+        .perks-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(6px, 1vw, 10px);
+            margin-bottom: 0;
+        }
+
+        .perks-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: clamp(0.84rem, 1.1vw, 0.9rem);
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* ===== WHATSAPP ORDER BUTTON & GAP ===== */
+        .btn-whatsapp-full {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--brand-green);
+            color: #ffffff;
+            width: 100%;
+            min-height: 52px;
+            padding: clamp(12px, 1.8vw, 16px) clamp(16px, 2.5vw, 28px);
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+            margin-top: clamp(16px, 2.2vw, 22px);
+            transition: var(--transition);
+            box-shadow: 0 6px 18px rgba(0, 168, 67, 0.22);
+            text-align: center;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .btn-whatsapp-full:hover {
+            background: var(--brand-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0, 168, 67, 0.32);
+        }
+
+        .btn-whatsapp-full:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 12px rgba(0, 168, 67, 0.2);
+        }
+
+        .btn-whatsapp-full:focus-visible {
+            outline: 2px solid var(--brand-green);
+            outline-offset: 3px;
+        }
+
+        .btn-whatsapp-full svg {
+            flex-shrink: 0;
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features {
+            padding: clamp(50px, 7vw, 90px) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto clamp(36px, 5vw, 50px);
+        }
+
+        .section-title {
+            font-size: clamp(1.6rem, 3.2vw, 2.25rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-top: 10px;
+        }
+
+        .grid-features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(16px, 2.5vw, 24px);
+        }
+
+        .card-feature {
+            background: var(--surface);
+            padding: clamp(24px, 3vw, 36px) clamp(18px, 2.5vw, 28px);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+        }
+
+        .card-feature:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .icon-box {
+            width: clamp(44px, 5vw, 52px);
+            height: clamp(44px, 5vw, 52px);
+            border-radius: var(--radius-md);
+            background: var(--brand-green-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.3rem, 2vw, 1.5rem);
+            margin-bottom: clamp(14px, 2vw, 20px);
+        }
+
+        .card-feature h3 {
+            font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .card-feature p {
+            color: var(--text-muted);
+            font-size: clamp(0.88rem, 1.1vw, 0.95rem);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        /* ===== CONTACT & QUICK ORDER SECTION ===== */
+        .contact-section {
+            padding: clamp(50px, 7vw, 90px) 0 clamp(60px, 8vw, 100px);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(32px, 4vw, 48px);
+            align-items: center;
+        }
+
+        .contact-info {
+            padding-right: clamp(10px, 2vw, 20px);
+        }
+
+        .badge-pill {
+            display: inline-block;
+            background: #E0E7FF;
+            color: #4F46E5;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 99px;
+            margin-bottom: 16px;
+        }
+
+        .contact-title {
+            font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .contact-subtitle {
+            color: var(--text-muted);
+            font-size: clamp(0.92rem, 1.2vw, 1rem);
+            margin-bottom: clamp(24px, 3.5vw, 36px);
+            font-weight: 500;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(16px, 2.5vw, 24px);
+            margin-bottom: clamp(24px, 3.5vw, 36px);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .contact-icon-bg {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .icon-green { background: #DCFCE7; color: #16A34A; }
+        .icon-blue { background: #DBEAFE; color: #2563EB; }
+        .icon-purple { background: #F3E8FF; color: #9333EA; }
+
+        .contact-detail h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+        }
+
+        .contact-detail p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .quick-order-card {
+            background: var(--dark-card-bg);
+            border-radius: var(--radius-lg);
+            padding: clamp(24px, 3.5vw, 40px);
+            color: white;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+        }
+
+        .quick-order-card h3 {
+            font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .quick-order-card p {
+            color: #94A3B8;
+            font-size: clamp(0.88rem, 1.1vw, 0.95rem);
+            margin-bottom: clamp(20px, 3vw, 28px);
+            line-height: 1.5;
+        }
+
+        .message-box-preview {
+            background: var(--dark-inner-bg);
+            border-radius: var(--radius-md);
+            padding: clamp(16px, 2.5vw, 24px);
+            margin-bottom: clamp(20px, 3vw, 28px);
+        }
+
+        .message-box-preview h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #F8FAFC;
+            margin-bottom: 16px;
+        }
+
+        .message-box-preview ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message-box-preview li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: clamp(0.82rem, 1.1vw, 0.88rem);
+            color: #CBD5E1;
+            font-weight: 500;
+        }
+
+        .message-box-preview li .check {
+            color: var(--brand-green);
+            font-weight: bold;
+        }
+
+        .btn-order-whatsapp-card {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--brand-green);
+            color: white;
+            width: 100%;
+            min-height: 52px;
+            padding: clamp(12px, 1.8vw, 16px) clamp(16px, 2.5vw, 28px);
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+            transition: var(--transition);
+            touch-action: manipulation;
+            cursor: pointer;
+        }
+
+        .btn-order-whatsapp-card:hover {
+            background: var(--brand-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 168, 67, 0.3);
+        }
+
+        .btn-order-whatsapp-card:active {
+            transform: translateY(0);
+        }
+
+        .btn-order-whatsapp-card:focus-visible {
+            outline: 2px solid white;
+            outline-offset: 3px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: clamp(30px, 4vw, 40px) 0;
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+            background: var(--surface);
+        }
+
+        .footer-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: clamp(0.82rem, 1.1vw, 0.9rem);
+            font-weight: 500;
+        }
+
+        /* ============================================================== */
+        /* RESPONSIVE MEDIA QUERIES (COMPREHENSIVE FOR ALL VIEWPORTS)     */
+        /* ============================================================== */
+
+        /* Large Tablets & Small Laptops (<= 1024px) */
+        @media (max-width: 1024px) {
+            .grid-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Tablets & Mobile Navigation Trigger (<= 880px) */
+        @media (max-width: 880px) {
+            header {
+                top: 12px;
+                width: calc(100% - 24px);
+                padding: 8px 18px;
+            }
+
+            .logo-img {
+                height: 30px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger-btn {
+                display: flex !important;
+            }
+
+            .btn-nav {
+                font-size: 0.82rem;
+                padding: 8px 14px;
+                min-height: 38px;
+            }
+
+            .product-card {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                align-items: start;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-info {
+                padding-right: 0;
+            }
+        }
+
+        /* Medium & Small Tablets (<= 768px) */
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 110px;
+                padding-bottom: 30px;
+            }
+
+            .main-image-wrapper {
+                height: clamp(260px, 48vw, 340px);
+            }
+
+            .thumb-box {
+                height: clamp(56px, 10vw, 75px);
+            }
+
+            .quick-order-card {
+                padding: clamp(22px, 3.5vw, 32px) clamp(18px, 3vw, 24px);
+            }
+        }
+
+        /* Large Mobile (<= 600px) */
+        @media (max-width: 600px) {
+            .grid-features {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-badge {
+                margin-bottom: 14px;
+            }
+
+            .thumbnail-row {
+                gap: 6px;
+            }
+
+            .thumb-box {
+                height: clamp(50px, 13vw, 65px);
+            }
+        }
+
+        /* Standard Mobile (<= 480px) */
+        @media (max-width: 480px) {
+            header {
+                top: 8px;
+                width: calc(100% - 16px);
+                padding: 7px 12px;
+            }
+
+            .logo-img {
+                height: 26px;
+            }
+
+            .btn-nav {
+                font-size: 0.76rem;
+                padding: 7px 11px;
+                min-height: 36px;
+                gap: 4px;
+            }
+
+            .hamburger-btn {
+                width: 38px;
+                height: 38px;
+                min-width: 38px;
+                min-height: 38px;
+                padding: 4px;
+            }
+
+            .hamburger-btn span {
+                width: 20px;
+            }
+
+            .hero {
+                padding-top: 92px;
+                padding-bottom: 24px;
+            }
+
+            .product-card {
+                padding: 16px;
+                border-radius: var(--radius-md);
+                margin-bottom: 28px;
+            }
+
+            .main-image-wrapper {
+                height: 240px;
+            }
+
+            .nav-arrow {
+                width: 38px;
+                height: 38px;
+                min-width: 38px;
+                min-height: 38px;
+                font-size: 1rem;
+            }
+
+            .nav-arrow.prev { left: 8px; }
+            .nav-arrow.next { right: 8px; }
+
+            .thumb-box {
+                height: 52px;
+                border-radius: 8px;
+            }
+
+            .price-box {
+                padding: 14px 16px;
+            }
+
+            .contact-item {
+                gap: 12px;
+            }
+
+            .contact-icon-bg {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Small Mobile (<= 360px - e.g. iPhone SE, Galaxy Fold outer screen 320px) */
+        @media (max-width: 360px) {
+            header {
+                padding: 5px 8px;
+                width: calc(100% - 12px);
+            }
+
+            .logo-img {
+                height: 23px;
+            }
+
+            .btn-nav {
+                font-size: 0.72rem;
+                padding: 6px 8px;
+                min-height: 34px;
+            }
+
+            .hamburger-btn {
+                width: 34px;
+                height: 34px;
+                min-width: 34px;
+                min-height: 34px;
+            }
+
+            .main-image-wrapper {
+                height: 210px;
+            }
+
+            .thumb-box {
+                height: 46px;
+                padding: 2px;
+            }
+
+            .btn-whatsapp-full {
+                font-size: 0.88rem;
+                padding: 12px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="container" style="padding: 0;">
+            <nav>
+                <a href="#">
+                    <img src="deenibox-logo.jpeg" alt="deeniBox Logo" class="logo-img">
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="#product">Featured</a></li>
+                    <li><a href="#product">Our Products</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+                <a href="https://wa.me/919916147013" target="_blank" class="btn-nav">
+                    Order via WhatsApp
+                </a>
+
+                <!-- Mobile Hamburger Menu Button -->
+                <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Open mobile navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Full-screen Mobile Navigation Drawer -->
+    <div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile Navigation">
+        <a href="#product" class="nav-link" onclick="closeMobileMenu()">Al Muallim Laptop</a>
+        <a href="#tab" class="nav-link" onclick="closeMobileMenu()">Islamic Learning Tab</a>
+        <a href="#prayer-mat" class="nav-link" onclick="closeMobileMenu()">My Salah Mat</a>
+        <a href="#features" class="nav-link" onclick="closeMobileMenu()">Features</a>
+        <a href="#contact" class="nav-link" onclick="closeMobileMenu()">Contact</a>
+        <a href="https://wa.me/919916147013" target="_blank" class="btn-nav" style="font-size: 1rem; padding: 12px 28px;" onclick="closeMobileMenu()">
+            Order via WhatsApp
+        </a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-badge">✨ Interactive Islamic Learning</div>
+                <h1 class="hero-title">Inspire your child's journey with<span class="hero-brand">deeniBox</span></h1>
+                <p class="hero-desc">Discover our range of tactile laptops, tablets, and prayer mats designed to make learning Duas, Quran, and Salah engaging for kids.</p>
+            </div>
+        </section>
+
+        <!-- Main Featured Product Section -->
+        <section id="product" class="product-showcase">
+            <div class="container">
+                <div class="product-card">
+                    
+                    <!-- Left Column: Gallery Slider -->
+                    <div class="gallery-container">
+                        <div class="main-image-wrapper">
+                            <button class="nav-arrow prev" onclick="changeSlide(-1)">&#10094;</button>
+                            <img id="mainDisplayImage" src="Deenibox_laptop_1_white.png" alt="deeniBox Laptop View">
+                            <button class="nav-arrow next" onclick="changeSlide(1)">&#10095;</button>
+                        </div>
+
+                        <div class="thumbnail-row">
+                            <div class="thumb-box active" onclick="setSlide(0, this)">
+                                <img src="Deenibox_laptop_1_white.png" alt="Laptop View 1">
+                            </div>
+                            <div class="thumb-box" onclick="setSlide(1, this)">
+                                <img src="Deenibox_laptop_02_white.png" alt="Laptop View 2">
+                            </div>
+                            <div class="thumb-box" onclick="setSlide(2, this)">
+                                <img src="Deenibox_laptop_03_white.png" alt="Laptop View 3">
+                            </div>
+                            <div class="thumb-box" onclick="setSlide(3, this)">
+                                <img src="Deenibox_laptop_01_white.png" alt="Laptop View 4">
+                            </div>
+                            <div class="thumb-box" onclick="setSlide(4, this)">
+                                <img src="laptop-box_white.png" alt="Laptop Box Packaging">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Details & Pricing -->
+                    <div class="product-info">
+                        <h2 class="product-title">Al Muallim Laptop</h2>
+                        <p class="product-description">
+                            Make Islamic learning fun and interactive with the Al Muallim Laptop by DeeniBox, also known as the Yamani Laptop. Specially designed for young learners, it introduces children to essential Surahs, Ayatul Kursi, Kalimas and daily Islamic Duas through clear audio recitation.
+                        </p>
+
+                        <ul class="feature-checklist">
+                            <li><span class="check-icon">&#10003;</span> 7 Surahs &amp; Ayatul Kursi</li>
+                            <li><span class="check-icon">&#10003;</span> Kalima Tauheed &amp; Durood-e-Ibrahim</li>
+                            <li><span class="check-icon">&#10003;</span> 8 Essential Daily Islamic Duas</li>
+                            <li><span class="check-icon">&#10003;</span> Clear Audio Recitation</li>
+                            <li><span class="check-icon">&#10003;</span> Durable and Kid-Friendly Design</li>
+                            <li><span class="check-icon">&#10003;</span> Suitable for Children Aged 3+</li>
+                        </ul>
+
+                        <div class="price-box">
+                            <div class="price-row">
+                                <span class="price-current">&#8377;1,200</span>
+                                <span class="price-original">&#8377;1,999</span>
+                            </div>
+                            <div class="price-savings">You Save: &#8377;799</div>
+                        </div>
+
+                        <ul class="perks-list">
+                            <li><span>💳</span> 100% Prepaid Orders Only</li>
+                            <li><span>🚫</span> Cash on Delivery Not Available</li>
+                            <li><span>🚚</span> Delivery Across India</li>
+                        </ul>
+
+                        <a href="https://wa.me/919916147013?text=Hi%2C%20I%20want%20to%20order%20the%20Yamani%20Laptop." target="_blank" class="btn-whatsapp-full">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            Order Now on WhatsApp
+                        </a>
+                    </div>
+
+                </div>
+                            <!-- ============================================== -->
+                <!-- PRODUCT 2: ARABIC QURAN LEARNING TABLET        -->
+                <!-- ============================================== -->
+                <div class="product-card" id="tab">
+                    
+                    <!-- Left Column: Gallery Slider -->
+                    <div class="gallery-container">
+                        <div class="main-image-wrapper">
+                            <span class="card-badge">New Arrival</span>
+                            <button class="nav-arrow prev" onclick="changeTabSlide(-1)" aria-label="Previous image">&#10094;</button>
+                            <img id="tabDisplayImage" src="Tab.jpeg" alt="Arabic Quran Learning Tablet for Kids">
+                            <button class="nav-arrow next" onclick="changeTabSlide(1)" aria-label="Next image">&#10095;</button>
+                        </div>
+
+                        <div class="thumbnail-row" style="grid-template-columns: repeat(3, 1fr);">
+                            <div class="thumb-box active" onclick="setTabSlide(0)">
+                                <img src="Tab.jpeg" alt="Tablet Front View">
+                            </div>
+                            <div class="thumb-box" onclick="setTabSlide(1)">
+                                <img src="tab-box.jpg" alt="Tablet Box Packaging">
+                            </div>
+                            <div class="thumb-box" onclick="setTabSlide(2)">
+                                <img src="tab-back.jpg" alt="Tablet Back Battery View">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Details & Pricing -->
+                    <div class="product-info">
+                        <h2 class="product-title">Arabic Quran Learning Tablet for Kids</h2>
+                        <p class="product-description">
+                            Smart touch tab featuring Surahs, daily Duas, Arabic alphabet, and quiz modes. Specially designed to help young children learn Arabic letters, Quranic recitation, and Islamic etiquette through joyful audio guidance.
+                        </p>
+
+                        <ul class="feature-checklist">
+                            <li><span class="check-icon">&#10003;</span> Quranic Surahs &amp; Essential Duas</li>
+                            <li><span class="check-icon">&#10003;</span> Arabic Alphabet &amp; Word Learning</li>
+                            <li><span class="check-icon">&#10003;</span> Interactive Touch-Sensitive Keys &amp; Quiz Modes</li>
+                            <li><span class="check-icon">&#10003;</span> Clear Audio Recitation &amp; Volume Control</li>
+                            <li><span class="check-icon">&#10003;</span> Child-Friendly, Durable &amp; Lightweight Design</li>
+                            <li><span class="check-icon">&#10003;</span> Battery operated (included)</li>
+                            <li><span class="check-icon">&#10003;</span> Suitable for Children Aged 3+</li>
+                        </ul>
+
+                        <div class="price-box">
+                            <div class="price-row">
+                                <span class="price-current">&#8377;999</span>
+                                <span class="price-original">&#8377;1,599</span>
+                            </div>
+                            <div class="price-savings">You Save: &#8377;600</div>
+                        </div>
+
+                        <ul class="perks-list">
+                            <li><span>💳</span> 100% Prepaid Orders Only</li>
+                            <li><span>🚫</span> Cash on Delivery Not Available</li>
+                            <li><span>🚚</span> Delivery Across India</li>
+                        </ul>
+
+                        <a href="https://wa.me/919916147013?text=Hi%2C%20I%20want%20to%20order%20the%20Arabic%20Quran%20Learning%20Tablet." target="_blank" class="btn-whatsapp-full">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            Order Now on WhatsApp
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- ============================================== -->
+                <!-- PRODUCT 3: MY SALAH MAT (INTERACTIVE PRAYER)   -->
+                <!-- ============================================== -->
+                <div class="product-card" id="prayer-mat">
+                    
+                    <!-- Left Column: Gallery Slider -->
+                    <div class="gallery-container">
+                        <div class="main-image-wrapper">
+                            <span class="card-badge">Popular</span>
+                            <button class="nav-arrow prev" onclick="changeMatSlide(-1)" aria-label="Previous image">&#10094;</button>
+                            <img id="matDisplayImage" src="mat.jpeg" alt="My Salah Mat – Interactive Kids Prayer Mat">
+                            <button class="nav-arrow next" onclick="changeMatSlide(1)" aria-label="Next image">&#10095;</button>
+                        </div>
+
+                        <div class="thumbnail-row" style="grid-template-columns: repeat(3, 1fr);">
+                            <div class="thumb-box active" onclick="setMatSlide(0)">
+                                <img src="mat.jpeg" alt="Prayer Mat Front View">
+                            </div>
+                            <div class="thumb-box" onclick="setMatSlide(1)">
+                                <img src="prayer-mat2.jpg" alt="Prayer Mat Real-Time Guidance Sensors">
+                            </div>
+                            <div class="thumb-box" onclick="setMatSlide(2)">
+                                <img src="prayer-mat3.jpg" alt="Prayer Mat Dimensions and Size">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Details & Pricing -->
+                    <div class="product-info">
+                        <h2 class="product-title">My Salah Mat – Interactive Kids Prayer Mat</h2>
+                        <p class="product-description">
+                            Make learning Salah fun, easy, and interactive with My Salah Mat! Specially designed for children, this smart prayer mat teaches Wudu, all 5 daily prayers, Quranic Surahs, and essential Duas through touch-sensitive keys and clear audio guidance.
+                        </p>
+
+                        <ul class="feature-checklist">
+                            <li><span class="check-icon">&#10003;</span> 36 Interactive Touch-Sensitive Keys</li>
+                            <li><span class="check-icon">&#10003;</span> Learn All 5 Daily Prayers (Fajr, Dhuhr, Asr, Maghrib &amp; Isha)</li>
+                            <li><span class="check-icon">&#10003;</span> Step-by-Step Wudu and Salah Guidance</li>
+                            <li><span class="check-icon">&#10003;</span> Essential Quranic Surahs and Daily Duas</li>
+                            <li><span class="check-icon">&#10003;</span> Clear Audio Recitation &amp; Guidance</li>
+                            <li><span class="check-icon">&#10003;</span> Qibla Direction Guide &amp; Nose Placement Marker</li>
+                            <li><span class="check-icon">&#10003;</span> Waterproof and Fire-Resistant Material</li>
+                        </ul>
+
+                        <div class="price-box">
+                            <div class="price-row">
+                                <span class="price-current">&#8377;1,999</span>
+                                <span class="price-original">&#8377;3,999</span>
+                            </div>
+                            <div class="price-savings">You Save: &#8377;2,000</div>
+                        </div>
+
+                        <ul class="perks-list">
+                            <li><span>💳</span> 100% Prepaid Orders Only</li>
+                            <li><span>🚫</span> Cash on Delivery Not Available</li>
+                            <li><span>🚚</span> Delivery Across India</li>
+                        </ul>
+
+                        <a href="https://wa.me/919916147013?text=Hi%2C%20I%20want%20to%20order%20the%20My%20Salah%20Mat." target="_blank" class="btn-whatsapp-full">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            Order Now on WhatsApp
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <div class="hero-badge">Smart & Fun</div>
+                    <h2 class="section-title">Designed for young minds</h2>
+                </div>
+
+                <div class="grid-features">
+                    <div class="card-feature">
+                        <div class="icon-box">📖</div>
+                        <h3>Quran Surahs</h3>
+                        <p>Clear, beautiful audio recitation of essential Surahs and Ayat al-Kursi designed for easy memorization and repeat learning.</p>
+                    </div>
+
+                    <div class="card-feature">
+                        <div class="icon-box">🤲</div>
+                        <h3>Daily Supplications</h3>
+                        <p>Teaches essential everyday duas including waking up, entering and leaving home, the restroom, and the masjid.</p>
+                    </div>
+
+                    <div class="card-feature">
+                        <div class="icon-box">✨</div>
+                        <h3>Faith & Salawat</h3>
+                        <p>Instills fundamental declarations of faith including Kalimat At-Tawheed and sending blessings upon the Prophet ﷺ.</p>
+                    </div>
+
+                    <div class="card-feature">
+                        <div class="icon-box">⌨️</div>
+                        <h3>Tactile Keypad</h3>
+                        <p>Durable Arabic letter buttons and playback controls mapped directly to clear audio clips for hands-on learning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us & Quick Order Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    
+                    <!-- Left Side: Contact Information -->
+                    <div class="contact-info">
+                        <span class="badge-pill">Get in Touch</span>
+                        <h2 class="contact-title">Contact Us</h2>
+                        <p class="contact-subtitle">Have questions? Reach out to us anytime. We're here to help!</p>
+
+                        <div class="contact-methods">
+                            <!-- Phone / WhatsApp -->
+                            <div class="contact-item">
+                                <div class="contact-icon-bg icon-green">📞</div>
+                                <div class="contact-detail">
+                                    <h4>Phone / WhatsApp</h4>
+                                    <p>+91 99161 47013 </p>
+                                </div>
+                            </div>
+
+                            <!-- Website -->
+                            <div class="contact-item">
+                                <div class="contact-icon-bg icon-blue">🌐</div>
+                                <div class="contact-detail">
+                                    <h4>Website</h4>
+                                    <p>www.deenibox.com</p>
+                                </div>
+                            </div>
+
+                            <!-- Shipping -->
+                            <div class="contact-item">
+                                <div class="contact-icon-bg icon-purple">📍</div>
+                                <div class="contact-detail">
+                                    <h4>Shipping</h4>
+                                    <p>Pan India Delivery</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side: Quick Order Card -->
+                    <div class="quick-order-card">
+                        <h3>Quick Order</h3>
+                        <p>The fastest way to order is via WhatsApp. Click below and send us your details!</p>
+
+                        <div class="message-box-preview">
+                            <h4>Your message will include:</h4>
+                            <ul>
+                                <li><span class="check">&#10003;</span> Choose Product (Laptop / Tab / Mat)</li>
+                                <li><span class="check">&#10003;</span> Your Name & Shipping Address</li>
+                                <li><span class="check">&#10003;</span> 100% Prepaid Orders Only (COD Not Available)</li>
+                            </ul>
+                        </div>
+
+                        <a href="https://wa.me/919916147013?text=Hi%2C%20I%20want%20to%20place%20an%20order." target="_blank" class="btn-order-whatsapp-card">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            Order on WhatsApp Now
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-wrap">
+                <img src="deenibox-logo.jpeg" alt="deeniBox Logo" class="logo-img" style="height: 32px;">
+                <p class="footer-text">© 2026 deeniBox. Inspiring young hearts with Islamic values.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Gallery Interaction Script -->
+    <script>
+                // ===== LAPTOP GALLERY =====
+        const galleryImages = [
+            'Deenibox_laptop_1_white.png',
+            'Deenibox_laptop_02_white.png',
+            'Deenibox_laptop_03_white.png',
+            'Deenibox_laptop_01_white.png',
+            'laptop-box_white.png'
+        ];
+        let currentIndex = 0;
+
+        function updateGalleryDisplay() {
+            const mainImg = document.getElementById('mainDisplayImage');
+            const thumbnails = document.querySelectorAll('#product .thumb-box');
+            if (mainImg) mainImg.src = galleryImages[currentIndex];
+            thumbnails.forEach((thumb, idx) => {
+                thumb.classList.toggle('active', idx === currentIndex);
+            });
+        }
+
+        function setSlide(index, element) {
+            currentIndex = index;
+            updateGalleryDisplay();
+        }
+
+        function changeSlide(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) {
+                currentIndex = galleryImages.length - 1;
+            } else if (currentIndex >= galleryImages.length) {
+                currentIndex = 0;
+            }
+            updateGalleryDisplay();
+        }
+
+        // ===== TAB GALLERY =====
+        const tabImages = [
+            'Tab.jpeg',
+            'tab-box.jpg',
+            'tab-back.jpg'
+        ];
+        let currentTabIndex = 0;
+
+        function updateTabGalleryDisplay() {
+            const mainImg = document.getElementById('tabDisplayImage');
+            const thumbnails = document.querySelectorAll('#tab .thumb-box');
+            if (mainImg) mainImg.src = tabImages[currentTabIndex];
+            thumbnails.forEach((thumb, idx) => {
+                thumb.classList.toggle('active', idx === currentTabIndex);
+            });
+        }
+
+        function setTabSlide(index) {
+            currentTabIndex = index;
+            updateTabGalleryDisplay();
+        }
+
+        function changeTabSlide(direction) {
+            currentTabIndex += direction;
+            if (currentTabIndex < 0) {
+                currentTabIndex = tabImages.length - 1;
+            } else if (currentTabIndex >= tabImages.length) {
+                currentTabIndex = 0;
+            }
+            updateTabGalleryDisplay();
+        }
+
+        // ===== PRAYER MAT GALLERY =====
+        const matImages = [
+            'mat.jpeg',
+            'prayer-mat2.jpg',
+            'prayer-mat3.jpg'
+        ];
+        let currentMatIndex = 0;
+
+        function updateMatGalleryDisplay() {
+            const mainImg = document.getElementById('matDisplayImage');
+            const thumbnails = document.querySelectorAll('#prayer-mat .thumb-box');
+            if (mainImg) mainImg.src = matImages[currentMatIndex];
+            thumbnails.forEach((thumb, idx) => {
+                thumb.classList.toggle('active', idx === currentMatIndex);
+            });
+        }
+
+        function setMatSlide(index) {
+            currentMatIndex = index;
+            updateMatGalleryDisplay();
+        }
+
+        function changeMatSlide(direction) {
+            currentMatIndex += direction;
+            if (currentMatIndex < 0) {
+                currentMatIndex = matImages.length - 1;
+            } else if (currentMatIndex >= matImages.length) {
+                currentMatIndex = 0;
+            }
+            updateMatGalleryDisplay();
+        }
+        // ===== MOBILE HAMBURGER MENU =====
+        function toggleMobileMenu() {
+            const btn = document.getElementById('hamburgerBtn');
+            const nav = document.getElementById('mobileNav');
+            const isOpen = nav.classList.toggle('open');
+            btn.classList.toggle('open', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+
+        function closeMobileMenu() {
+            const btn = document.getElementById('hamburgerBtn');
+            const nav = document.getElementById('mobileNav');
+            if (btn && nav) {
+                btn.classList.remove('open');
+                nav.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMobileMenu();
+        });
+    </script>
+</body>
+</html>
